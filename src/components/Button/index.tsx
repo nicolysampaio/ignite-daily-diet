@@ -9,7 +9,6 @@ type Props = TouchableOpacityProps & {
 export function Button({ title, ...rest }: Props) {
   return (
     <Container {...rest}>
-      <Icon name="plus" />
       <Title>{title}</Title>
     </Container>
   );

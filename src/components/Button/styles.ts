@@ -1,12 +1,14 @@
 import styled, { css } from "styled-components/native";
 import { AntDesign } from "@expo/vector-icons";
+import { TouchableOpacity } from 'react-native';
 
-export const Container = styled.TouchableOpacity`
+export const Container = styled(TouchableOpacity)`
   margin-top: 8px;
   margin-bottom: 32px;
 
   min-height: 50px;
   max-height: 50px;
+  width: 100%;
 
   border-radius: 6px;
 
