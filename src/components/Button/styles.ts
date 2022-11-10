@@ -21,13 +21,6 @@ export const Container = styled(TouchableOpacity)`
   gap: 8px;
 `;
 
-export const Icon = styled(AntDesign).attrs(({ theme }) => ({
-  size: 14,
-  color: theme.COLORS.WHITE,
-}))`
-  padding-right: 8px;
-`;
-
 export const Title = styled.Text`
   ${({ theme }) => css`
     font-family: ${theme.FONT_FAMILY.BOLD};

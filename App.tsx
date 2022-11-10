@@ -8,14 +8,14 @@ import { ThemeProvider } from "styled-components/native";
 
 import theme from "@theme/index";
 
-import { Feedback } from "@screens/Feedback";
+import { Meal } from "@screens/Meal";
 
 export default function App() {
   const [fontsLoaded] = useFonts({ NunitoSans_400Regular, NunitoSans_700Bold });
 
   return (
     <ThemeProvider theme={theme}>
-      {fontsLoaded ? <Feedback /> : <ActivityIndicator />}
+      {fontsLoaded ? <Meal /> : <ActivityIndicator />}
     </ThemeProvider>
   );
 }
