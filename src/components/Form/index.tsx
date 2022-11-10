@@ -14,17 +14,46 @@ import {
   Label,
 } from "./styles";
 
-export function Form() {
+type Props = {
+  mealName?: string;
+  mealDescription?: string;
+  mealDate?: string;
+  mealTime?: string;
+  type?: "CREATE" | "EDIT";
+};
+
+export function Form({
+  mealName,
+  mealDescription,
+  mealDate,
+  mealTime,
+  type = "CREATE",
+}: Props) {
+  const [name, setName] = useState(mealName);
+  const [description, setDescription] = useState(mealDescription);
+  const [date, setDate] = useState(mealDate);
+  const [time, setTime] = useState(mealTime);
   const [insideDiet, setInsideDiet] = useState<"YES" | "NO" | "">("");
+
+  function handleSubmitMeal() {
+    console.log(
+      `Nome: ${name}, Descrição: ${description}, Data: ${date}, Hora: ${time}, Dentro da dieta: ${insideDiet}`
+    );
+  }
 
   return (
     <Container>
       <View>
         <Label>Nome</Label>
-        <Input />
+        <Input value={name} onChangeText={setName} />
 
         <Label>Descrição</Label>
-        <Input isTextArea={true} multiline={true} />
+        <Input
+          isTextArea={true}
+          multiline={true}
+          value={description}
+          onChangeText={setDescription}
+        />
 
         <Group>
           <InputGroup>
@@ -33,6 +62,7 @@ export function Form() {
               onChangeText={(text: string) => console.log(text)}
               mask={"99/99/9999"}
               keyboardType="numeric"
+              value={date}
             />
           </InputGroup>
 
@@ -42,6 +72,7 @@ export function Form() {
               onChangeText={(text: string) => console.log(text)}
               mask={"99:99"}
               keyboardType="numeric"
+              value={time}
             />
           </InputGroup>
         </Group>
@@ -67,7 +98,10 @@ export function Form() {
           </InsideDietButton>
         </Group>
       </View>
-      <Button title="Cadastrar refeição" />
+      <Button
+        title={type === "CREATE" ? "Cadastrar refeição" : "Salvar alterações"}
+        onPress={handleSubmitMeal}
+      />
     </Container>
   );
 }

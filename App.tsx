@@ -6,16 +6,16 @@ import {
 import { ActivityIndicator } from "react-native";
 import { ThemeProvider } from "styled-components/native";
 
-import theme from "@theme/index";
+import { EditMeal } from "@screens/EditMeal";
 
-import { Meal } from "@screens/Meal";
+import theme from "@theme/index";
 
 export default function App() {
   const [fontsLoaded] = useFonts({ NunitoSans_400Regular, NunitoSans_700Bold });
 
   return (
     <ThemeProvider theme={theme}>
-      {fontsLoaded ? <Meal /> : <ActivityIndicator />}
+      {fontsLoaded ? <EditMeal /> : <ActivityIndicator />}
     </ThemeProvider>
   );
 }

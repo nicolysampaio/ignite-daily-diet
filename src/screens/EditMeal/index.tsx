@@ -9,7 +9,7 @@ import {
 
 import { Form } from "@components/Form";
 
-export function CreateMeal() {
+export function EditMeal() {
   return (
     <Container>
       <Header>
@@ -17,11 +17,11 @@ export function CreateMeal() {
           <BackIcon />
         </BackButton>
 
-        <Title>Nova refeição</Title>
+        <Title>Editar refeição</Title>
       </Header>
 
       <Content>
-        <Form />
+        <Form type="EDIT" mealDescription="08:00" mealTime="08:00" />
       </Content>
     </Container>
   );
