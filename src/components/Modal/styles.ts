@@ -25,7 +25,8 @@ export const Content = styled.View`
 
 export const Title = styled.Text`
   width: 100%;
-  margin: 16px 0;
+  margin: 4px 0;
+  padding: 8px 4px 16px 4px;
   text-align: center;
 
   ${({ theme }) => css`
