@@ -1,15 +1,16 @@
 import { TouchableOpacityProps } from "react-native";
 
-import { Container, Icon, Title } from "./styles";
+import { ButtonStyleProps, Container, Title } from "./styles";
 
 type Props = TouchableOpacityProps & {
+  type?: ButtonStyleProps;
   title: string;
 };
 
-export function Button({ title, ...rest }: Props) {
+export function Button({ type = "PRIMARY", title, ...rest }: Props) {
   return (
-    <Container {...rest}>
-      <Title>{title}</Title>
+    <Container type={type} {...rest}>
+      <Title type={type}>{title}</Title>
     </Container>
   );
 }

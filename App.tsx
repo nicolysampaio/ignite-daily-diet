@@ -6,7 +6,7 @@ import {
 import { ActivityIndicator } from "react-native";
 import { ThemeProvider } from "styled-components/native";
 
-import { EditMeal } from "@screens/EditMeal";
+import { Meal } from "@screens/Meal";
 
 import theme from "@theme/index";
 
@@ -15,7 +15,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      {fontsLoaded ? <EditMeal /> : <ActivityIndicator />}
+      {fontsLoaded ? <Meal /> : <ActivityIndicator />}
     </ThemeProvider>
   );
 }
