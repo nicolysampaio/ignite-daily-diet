@@ -12,7 +12,7 @@ import outsideDietImg from "@assets/outsideDiet.png";
 import { Button } from "@components/Button";
 
 type Props = {
-  insideDiet: boolean;
+  insideDiet?: boolean;
 };
 
 export function Feedback({ insideDiet = true }: Props) {
