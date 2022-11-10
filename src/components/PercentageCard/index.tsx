@@ -16,7 +16,7 @@ type Props = TouchableOpacityProps & {
   icon: keyof typeof Feather.glyphMap;
 };
 
-export default function PercentageCard({
+export function PercentageCard({
   inDiet,
   total,
   type = "PRIMARY",

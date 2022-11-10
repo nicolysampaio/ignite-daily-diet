@@ -12,9 +12,9 @@ import {
 import logoImg from "@assets/logo.png";
 import profileImg from "@assets/profile.png";
 
-import PercentageCard from "@components/PercentageCard";
+import { PercentageCard } from "@components/PercentageCard";
 import { Button } from "@components/Button";
-import { Meal } from "@components/Meal";
+import { MealDetails } from "@components/MealDetails";
 
 const DATA = [
   {
@@ -96,7 +96,7 @@ export function Home() {
         sections={DATA}
         keyExtractor={(item, index) => item.title + index}
         renderItem={({ item }) => (
-          <Meal time={item.time} title={item.title} type={item.type} />
+          <MealDetails time={item.time} title={item.title} type={item.type} />
         )}
         renderSectionHeader={({ section: { date } }) => (
           <SectionHeader>{date}</SectionHeader>

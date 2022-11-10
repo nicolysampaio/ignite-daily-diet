@@ -8,7 +8,7 @@ type Props = TouchableOpacityProps & {
   type: TagTypeStyleProps;
 };
 
-export function Meal({ time, title, type, ...rest }: Props) {
+export function MealDetails({ time, title, type, ...rest }: Props) {
   return (
     <Container>
       <Time>{time}</Time>

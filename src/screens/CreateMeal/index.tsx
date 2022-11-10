@@ -9,7 +9,7 @@ import {
   Title,
 } from "./styles";
 
-export function NewMeal() {
+export function CreateMeal() {
   return (
     <Container>
       <Header>
