@@ -2,14 +2,19 @@ import { Modal as RNModal } from "react-native";
 import { Container, Content, Title } from "./styles";
 
 import { Button } from "@components/Button";
-import { useState } from 'react';
+import { useState } from "react";
 
 interface Props {
-  isVisible?: boolean;
+  isVisible: boolean;
+  handleCloseModal: () => void;
+  handleDeleteMeal: () => void;
 }
 
-export function Modal({ isVisible }: Props) {
-  const [modalVisible, setModalVisible] = useState(isVisible);
+export function Modal({
+  isVisible,
+  handleCloseModal,
+  handleDeleteMeal,
+}: Props) {
 
   return (
     <Container>
@@ -22,9 +27,13 @@ export function Modal({ isVisible }: Props) {
               type="SECONDARY"
               title="Cancelar"
               style={{ width: "48%", marginRight: 8 }}
-              onPress={() => setModalVisible(false)}
+              onPress={handleCloseModal}
             />
-            <Button title="Sim, excluir" style={{ width: "48%" }} />
+            <Button
+              title="Sim, excluir"
+              style={{ width: "48%" }}
+              onPress={handleDeleteMeal}
+            />
           </Content>
         </Container>
       </RNModal>

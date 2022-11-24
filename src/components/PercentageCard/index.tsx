@@ -33,7 +33,7 @@ export function PercentageCard({
 
   return (
     <Container type={type} {...rest}>
-      <IconContainer>
+      <IconContainer onPress={handleGoBack}>
         <Icon type={type} />
       </IconContainer>
 

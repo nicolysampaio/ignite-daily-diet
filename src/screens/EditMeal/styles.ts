@@ -1,7 +1,8 @@
 import styled, { css } from "styled-components/native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { ArrowLeft } from "phosphor-react-native";
 
-export const Container = styled.View`
+export const Container = styled(SafeAreaView)`
   flex: 1;
 
   background-color: ${({ theme }) => theme.COLORS.GRAY_300};
@@ -9,12 +10,12 @@ export const Container = styled.View`
 
 export const Header = styled.View`
   width: 100%;
-  height: 40px;
+  height: 50px;
 
   padding-bottom: 24px;
 
   flex-direction: row;
-  padding-right: 130px;
+  padding-right: 152px;
   padding-left: 24px;
 
   align-items: center;

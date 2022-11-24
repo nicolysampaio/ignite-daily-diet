@@ -19,7 +19,7 @@ import {
 
 import { ButtonIcon } from "@components/ButtonIcon";
 import { Modal } from "@components/Modal";
-import { useState } from 'react';
+import { useState } from "react";
 
 type RouteParams = {
   id: string;
@@ -35,19 +35,28 @@ export function Meal() {
     time: "16:00",
   };
 
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalIsVisible, setModalIsVisible] = useState(false);
 
   const route = useRoute();
   const { id } = route.params as RouteParams;
 
   const navigation = useNavigation();
 
-  function handleGoBack(){
+  function handleGoBack() {
     navigation.goBack();
   }
 
   function handleEditMeal(id: string) {
-    navigation.navigate("editMeal", {id});
+    navigation.navigate("editMeal", { id });
+  }
+
+  function handleCloseModal() {
+    setModalIsVisible(false);
+  }
+
+  function handleDeleteMeal(id: string) {
+    console.log(`refeição ${id} excluída`);
+    navigation.navigate("home");
   }
 
   return (
@@ -80,16 +89,24 @@ export function Meal() {
               </TagTile>
             </Tag>
 
-            <Modal isVisible={modalVisible} />
+            <Modal
+              isVisible={modalIsVisible}
+              handleCloseModal={handleCloseModal}
+              handleDeleteMeal={() => handleDeleteMeal(id)}
+            />
           </View>
 
           <View>
-            <ButtonIcon title="Editar refeição" icon="edit" onPress={() => handleEditMeal(id)}/>
+            <ButtonIcon
+              title="Editar refeição"
+              icon="edit"
+              onPress={() => handleEditMeal(id)}
+            />
             <ButtonIcon
               type="SECONDARY"
               title="Excluir refeição"
               icon="delete"
-              onPress={() => setModalVisible(true)}
+              onPress={() => setModalIsVisible(true)}
             />
           </View>
         </Content>
