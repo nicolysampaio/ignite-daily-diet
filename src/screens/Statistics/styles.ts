@@ -1,6 +1,6 @@
+import { SafeAreaView } from 'react-native-safe-area-context';
 import styled, { css } from "styled-components/native";
 import { ArrowLeft } from "phosphor-react-native";
-import { View } from "react-native";
 
 export type StatisticsStyleProps = "PRIMARY" | "SECONDARY";
 
@@ -8,7 +8,7 @@ type Props = {
   type: StatisticsStyleProps;
 };
 
-export const Container = styled(View)<Props>`
+export const Container = styled(SafeAreaView)<Props>`
   flex: 1;
 
   background-color: ${({ theme, type }) =>
@@ -17,13 +17,14 @@ export const Container = styled(View)<Props>`
 
 export const Header = styled.View`
   width: 100%;
-  height: 140px;
+  height: 134px;
 
   padding-bottom: 34px;
 `;
 
 export const BackButton = styled.TouchableOpacity`
   flex: 1;
+  margin-left: 24px;
 `;
 
 export const BackIcon = styled(ArrowLeft).attrs<Props>(({ theme, type }) => ({
@@ -59,6 +60,7 @@ export const Content = styled.View`
   background-color: ${({ theme }) => theme.COLORS.GRAY_100};
 
   padding: 24px;
+  margin-bottom: -100px;
 
   align-items: center;
 `;
@@ -94,7 +96,7 @@ export const DietCard = styled.View`
   justify-content: space-between;
 `;
 
-export const InDietCard = styled(Card)`
+export const InsideDietCard = styled(Card)`
   height: 110px;
   width: 50%;
 
@@ -103,7 +105,7 @@ export const InDietCard = styled(Card)`
   background-color: ${({ theme }) => theme.COLORS.GREEN_300};
 `;
 
-export const OffDietCard = styled(Card)`
+export const OutsideDietCard = styled(Card)`
   width: 50%;
   height: 110px;
 

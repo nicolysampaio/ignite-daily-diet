@@ -1,3 +1,5 @@
+import { useNavigation } from '@react-navigation/native';
+
 import {
   BackButton,
   BackIcon,
@@ -10,10 +12,16 @@ import {
 import { Form } from "@components/Form";
 
 export function CreateMeal() {
+  const navigation = useNavigation();
+
+  function handleGoBack() {
+    navigation.goBack();
+  }
+
   return (
     <Container>
       <Header>
-        <BackButton>
+        <BackButton onPress={handleGoBack}>
           <BackIcon />
         </BackButton>
 

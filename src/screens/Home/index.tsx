@@ -1,4 +1,4 @@
-import { SectionList, Text } from "react-native";
+import { SectionList } from "react-native";
 
 import {
   Container,
@@ -15,25 +15,35 @@ import profileImg from "@assets/profile.png";
 import { PercentageCard } from "@components/PercentageCard";
 import { Button } from "@components/Button";
 import { MealDetails } from "@components/MealDetails";
+import { useNavigation } from "@react-navigation/native";
 
 const DATA = [
   {
     date: "12.10.22",
     data: [
       {
-        time: "20:00",
-        title: "X-tudo",
-        type: "SECONDARY",
+        id: "0",
+        name: "X-tudo",
+        description: "Descrição da refeição",
+        date: "12.10.22",
+        hour: "20:00",
+        insideDiet: false,
       },
       {
-        time: "12:00",
-        title: "Vitamina",
-        type: "PRIMARY",
+        id: "1",
+        name: "Salada",
+        description: "Descrição da refeição",
+        date: "12.10.22",
+        hour: "08:00",
+        insideDiet: true,
       },
       {
-        time: "04:00",
-        title: "Salada",
-        type: "PRIMARY",
+        id: "2",
+        name: "Vitamina",
+        description: "Descrição da refeição",
+        date: "12.10.22",
+        hour: "12:00",
+        insideDiet: true,
       },
     ],
   },
@@ -41,45 +51,48 @@ const DATA = [
     date: "13.10.22",
     data: [
       {
-        time: "19:00",
-        title: "X-tudo",
-        type: "SECONDARY",
+        id: "3",
+        name: "X-tudo",
+        description: "Descrição da refeição",
+        date: "13.10.22",
+        hour: "20:00",
+        insideDiet: false,
       },
       {
-        time: "11:00",
-        title: "Vitamina",
-        type: "PRIMARY",
+        id: "4",
+        name: "Salada",
+        description: "Descrição da refeição",
+        date: "13.10.22",
+        hour: "08:00",
+        insideDiet: true,
       },
       {
-        time: "00:00",
-        title: "Salada",
-        type: "PRIMARY",
-      },
-    ],
-  },
-  {
-    date: "14.10.22",
-    data: [
-      {
-        time: "20:00",
-        title: "X-tudo",
-        type: "SECONDARY",
-      },
-      {
-        time: "12:00",
-        title: "Vitamina",
-        type: "PRIMARY",
-      },
-      {
-        time: "20:00",
-        title: "Salada",
-        type: "PRIMARY",
+        id: "5",
+        name: "Vitamina",
+        description: "Descrição da refeição",
+        date: "13.10.22",
+        hour: "12:00",
+        insideDiet: true,
       },
     ],
   },
 ];
 
 export function Home() {
+  const navigation = useNavigation();
+
+  function handleOpenStatistics() {
+    navigation.navigate("statistics");
+  }
+
+  function handleCreateMeal() {
+    navigation.navigate("createMeal");
+  }
+
+  function handleOpenMeal(id: string) {
+    navigation.navigate("meal", { id });
+  }
+
   return (
     <Container>
       <Header>
@@ -87,16 +100,21 @@ export function Home() {
         <Profile source={profileImg} />
       </Header>
 
-      <PercentageCard icon="arrow-up-right" inDiet={5} total={6} />
+      <PercentageCard
+        icon="arrow-up-right"
+        insideDiet={5}
+        total={6}
+        onPress={handleOpenStatistics}
+      />
 
       <Title>Refeições</Title>
-      <Button title="Nova refeição" />
+      <Button title="Nova refeição" onPress={handleCreateMeal} />
 
       <SectionList
         sections={DATA}
-        keyExtractor={(item, index) => item.title + index}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <MealDetails time={item.time} title={item.title} type={item.type} />
+          <MealDetails meal={item} onPress={() => handleOpenMeal(item.id)} />
         )}
         renderSectionHeader={({ section: { date } }) => (
           <SectionHeader>{date}</SectionHeader>

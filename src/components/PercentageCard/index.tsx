@@ -1,33 +1,44 @@
 import { TouchableOpacityProps } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
 
 import {
-  Icon,
   Percent,
-  PercentCard,
+  Container,
   PercentCardStyleProps,
   Subtitle,
+  IconContainer,
+  Icon,
 } from "./styles";
 
 type Props = TouchableOpacityProps & {
-  inDiet: number;
+  insideDiet: number;
   total: number;
   type?: PercentCardStyleProps;
   icon: keyof typeof Feather.glyphMap;
 };
 
 export function PercentageCard({
-  inDiet,
+  insideDiet,
   total,
   type = "PRIMARY",
   icon,
   ...rest
 }: Props) {
+  const navigation = useNavigation();
+
+  function handleGoBack() {
+    navigation.goBack();
+  }
+
   return (
-    <PercentCard type={type}>
-      <Icon name={icon} type={type} />
-      <Percent>{((inDiet / total) * 100).toFixed(2)}%</Percent>
+    <Container type={type} {...rest}>
+      <IconContainer>
+        <Icon type={type} />
+      </IconContainer>
+
+      <Percent>{((insideDiet / total) * 100).toFixed(2)}%</Percent>
       <Subtitle>das refeições dentro da dieta</Subtitle>
-    </PercentCard>
+    </Container>
   );
 }

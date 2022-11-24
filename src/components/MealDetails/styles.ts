@@ -1,10 +1,8 @@
 import styled, { css } from "styled-components/native";
 import { View } from "react-native";
 
-export type TagTypeStyleProps = "PRIMARY" | "SECONDARY";
-
 type Props = {
-  type: TagTypeStyleProps;
+  insideDiet: boolean;
 };
 
 export const Container = styled.TouchableOpacity`
@@ -15,7 +13,7 @@ export const Container = styled.TouchableOpacity`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  
+
   padding: 12px;
   margin-bottom: 8px;
 `;
@@ -44,6 +42,6 @@ export const Tag = styled(View)<Props>`
 
   border-radius: 100px;
 
-  background-color: ${({ theme, type }) =>
-    type === "PRIMARY" ? theme.COLORS.GREEN_500 : theme.COLORS.RED_500};
+  background-color: ${({ theme, insideDiet }) =>
+    insideDiet === true ? theme.COLORS.GREEN_500 : theme.COLORS.RED_500};
 `;

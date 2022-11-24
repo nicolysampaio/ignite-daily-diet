@@ -1,19 +1,25 @@
 import { TouchableOpacityProps } from "react-native";
 
-import { Container, Tag, TagTypeStyleProps, Time, Title } from "./styles";
+import { Container, Tag, Time, Title } from "./styles";
 
 type Props = TouchableOpacityProps & {
-  time: string;
-  title: string;
-  type: TagTypeStyleProps;
+  meal: {
+    id: string;
+    hour: string;
+    name: string;
+    insideDiet: boolean;
+  };
 };
 
-export function MealDetails({ time, title, type, ...rest }: Props) {
+export function MealDetails({
+  meal: { id, hour, name, insideDiet },
+  ...rest
+}: Props) {
   return (
-    <Container>
-      <Time>{time}</Time>
-      <Title>{title}</Title>
-      <Tag type={type} />
+    <Container {...rest}>
+      <Time>{hour}</Time>
+      <Title>{name}</Title>
+      <Tag insideDiet={insideDiet} />
     </Container>
   );
 }

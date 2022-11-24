@@ -10,12 +10,22 @@ import {
 import insideDietImg from "@assets/insideDiet.png";
 import outsideDietImg from "@assets/outsideDiet.png";
 import { Button } from "@components/Button";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
-type Props = {
+type RouteParams = {
   insideDiet?: boolean;
 };
 
-export function Feedback({ insideDiet = true }: Props) {
+export function Feedback() {
+  const route = useRoute();
+  const { insideDiet } = route.params as RouteParams;
+
+  const navigation = useNavigation();
+
+  function handleGoHome() {
+    navigation.navigate("home")
+  }
+
   return (
     <Container>
       {insideDiet ? (
@@ -38,7 +48,7 @@ export function Feedback({ insideDiet = true }: Props) {
         </>
       )}
       <ButtonContainer>
-        <Button title={"Ir para a página inicial"} />
+        <Button title={"Ir para a página inicial"} onPress={handleGoHome} />
       </ButtonContainer>
     </Container>
   );

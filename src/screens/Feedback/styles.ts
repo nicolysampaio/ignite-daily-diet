@@ -1,10 +1,11 @@
+import { SafeAreaView } from 'react-native-safe-area-context';
 import styled, { css } from "styled-components/native";
 
 interface InsideDietTitleStyleProps {
   insideDiet: boolean;
 }
 
-export const Container = styled.View`
+export const Container = styled(SafeAreaView)`
   flex: 1;
 
   background-color: ${({ theme }) => theme.COLORS.GRAY_100};

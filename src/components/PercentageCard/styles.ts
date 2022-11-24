@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components/native";
 import { TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
+import { ArrowUpRight } from 'phosphor-react-native';
 
 export type PercentCardStyleProps = "PRIMARY" | "SECONDARY";
 
@@ -8,7 +9,7 @@ type Props = {
   type: PercentCardStyleProps;
 };
 
-export const PercentCard = styled(TouchableOpacity)<Props>`
+export const Container = styled(TouchableOpacity)<Props>`
   width: 100%;
   height: 102px;
 
@@ -21,13 +22,15 @@ export const PercentCard = styled(TouchableOpacity)<Props>`
   padding: 4px;
 `;
 
-export const Icon = styled(Feather).attrs<Props>(({ theme, type }) => ({
-  color: type === "PRIMARY" ? theme.COLORS.GREEN_700 : theme.COLORS.RED_700,
-  size: 24,
-}))`
+export const IconContainer = styled.TouchableOpacity`
   align-self: flex-end;
   justify-self: flex-start;
 `;
+
+export const Icon = styled(ArrowUpRight).attrs<Props>(({ theme, type }) => ({
+  size: 24,
+  color: type === "PRIMARY" ? theme.COLORS.GREEN_700 : theme.COLORS.RED_700,
+}))``;
 
 export const Percent = styled.Text`
   ${({ theme }) => css`

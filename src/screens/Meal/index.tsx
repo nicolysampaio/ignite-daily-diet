@@ -1,6 +1,7 @@
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { View } from "react-native";
+
 import {
-  MealStyleProps,
   Container,
   Header,
   BackButton,
@@ -18,27 +19,42 @@ import {
 
 import { ButtonIcon } from "@components/ButtonIcon";
 import { Modal } from "@components/Modal";
+import { useState } from 'react';
 
-type Props = {
-  insideDiet?: MealStyleProps;
-  name?: string;
-  description?: string;
-  date?: string;
-  time?: string;
+type RouteParams = {
+  id: string;
 };
 
-export function Meal({
-  insideDiet = true,
-  name = "Sanduíche",
-  description = "Sanduíche de pão integral com atum e salada de alface e tomate",
-  date = "12/08/2022",
-  time = "16:00",
-}: Props) {
+export function Meal() {
+  const meal = {
+    insideDiet: true,
+    name: "Sanduíche",
+    description:
+      "Sanduíche de pão integral com atum e salada de alface e tomate",
+    date: "12/08/2022",
+    time: "16:00",
+  };
+
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const route = useRoute();
+  const { id } = route.params as RouteParams;
+
+  const navigation = useNavigation();
+
+  function handleGoBack(){
+    navigation.goBack();
+  }
+
+  function handleEditMeal(id: string) {
+    navigation.navigate("editMeal", {id});
+  }
+
   return (
     <>
-      <Container insideDiet={insideDiet}>
+      <Container insideDiet={meal.insideDiet}>
         <Header>
-          <BackButton>
+          <BackButton onPress={handleGoBack}>
             <BackIcon />
           </BackButton>
 
@@ -47,30 +63,33 @@ export function Meal({
 
         <Content>
           <View>
-            <Name>{name}</Name>
-            <Description>{description}</Description>
+            <Name>
+              {id} - {meal.name}
+            </Name>
+            <Description>{meal.description}</Description>
 
             <DateAndTimeTitle>Data e hora</DateAndTimeTitle>
             <DateAndTime>
-              {date} às {time}
+              {meal.date} às {meal.time}
             </DateAndTime>
 
-            <Tag insideDiet={insideDiet}>
-              <TagColor insideDiet={insideDiet} />
+            <Tag insideDiet={meal.insideDiet}>
+              <TagColor insideDiet={meal.insideDiet} />
               <TagTile>
-                {insideDiet === true ? "dentro da dieta" : "fora da dieta"}
+                {meal.insideDiet === true ? "dentro da dieta" : "fora da dieta"}
               </TagTile>
             </Tag>
 
-            <Modal />
+            <Modal isVisible={modalVisible} />
           </View>
 
           <View>
-            <ButtonIcon title="Editar refeição" icon="edit" />
+            <ButtonIcon title="Editar refeição" icon="edit" onPress={() => handleEditMeal(id)}/>
             <ButtonIcon
               type="SECONDARY"
               title="Excluir refeição"
               icon="delete"
+              onPress={() => setModalVisible(true)}
             />
           </View>
         </Content>

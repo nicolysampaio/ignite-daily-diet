@@ -1,3 +1,5 @@
+import { useRoute, useNavigation, Route } from "@react-navigation/native";
+
 import {
   BackButton,
   BackIcon,
@@ -9,11 +11,24 @@ import {
 
 import { Form } from "@components/Form";
 
+type RouteParams = {
+  id: string;
+};
+
 export function EditMeal() {
+  const route = useRoute();
+  const { id } = route.params as RouteParams;
+
+  const navigation = useNavigation();
+
+  function handleGoBack() {
+    navigation.goBack();
+  }
+
   return (
     <Container>
       <Header>
-        <BackButton>
+        <BackButton onPress={handleGoBack}>
           <BackIcon />
         </BackButton>
 
@@ -21,7 +36,7 @@ export function EditMeal() {
       </Header>
 
       <Content>
-        <Form type="EDIT" mealDescription="08:00" mealTime="08:00" />
+        <Form type="EDIT" mealDescription={id} mealTime="08:00" />
       </Content>
     </Container>
   );

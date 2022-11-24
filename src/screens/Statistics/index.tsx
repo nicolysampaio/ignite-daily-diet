@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacityProps } from "react-native";
 
 import {
@@ -9,9 +10,9 @@ import {
   Details,
   DietCard,
   Header,
-  InDietCard,
   Number,
-  OffDietCard,
+  InsideDietCard,
+  OutsideDietCard,
   StatisticsStyleProps,
   Subtitle,
   Title,
@@ -21,11 +22,17 @@ type Props = TouchableOpacityProps & {
   type?: StatisticsStyleProps;
 };
 
-export function Statistics({ type = "PRIMARY", ...rest }: Props) {
+export function Statistics({ type = "PRIMARY" }: Props) {
+  const navigation = useNavigation();
+
+  function handleGoBack() {
+    navigation.goBack();
+  }
+
   return (
     <Container type={type}>
       <Header>
-        <BackButton>
+        <BackButton onPress={handleGoBack}>
           <BackIcon type={type} />
         </BackButton>
         <Details>
@@ -46,14 +53,14 @@ export function Statistics({ type = "PRIMARY", ...rest }: Props) {
         </Card>
 
         <DietCard>
-          <InDietCard>
+          <InsideDietCard>
             <Number>99</Number>
             <Subtitle>refeições dentro da dieta</Subtitle>
-          </InDietCard>
-          <OffDietCard>
+          </InsideDietCard>
+          <OutsideDietCard>
             <Number>10</Number>
             <Subtitle>refeições fora da dieta</Subtitle>
-          </OffDietCard>
+          </OutsideDietCard>
         </DietCard>
       </Content>
     </Container>
