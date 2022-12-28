@@ -9,7 +9,7 @@ import {
   Title,
 } from "./styles";
 
-import { Form } from "@components/Form";
+import { FormEdit } from "@components/FormEdit";
 
 type RouteParams = {
   id: string;
@@ -36,7 +36,7 @@ export function EditMeal() {
       </Header>
 
       <Content>
-        <Form type="EDIT" mealDescription={id} mealTime="08:00" />
+        <FormEdit meal={id} />
       </Content>
     </Container>
   );

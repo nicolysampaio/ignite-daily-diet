@@ -3,3 +3,5 @@
 - [] Componente Loading
 - [] Tela home
 - [] Nova refeição: Botão icon
+- [] Glitch
+- [] Erros

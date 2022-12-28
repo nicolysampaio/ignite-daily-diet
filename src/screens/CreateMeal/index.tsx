@@ -9,7 +9,7 @@ import {
   Title,
 } from "./styles";
 
-import { Form } from "@components/Form";
+import { FormCreate } from "@components/FormCreate";
 
 export function CreateMeal() {
   const navigation = useNavigation();
@@ -29,7 +29,7 @@ export function CreateMeal() {
       </Header>
 
       <Content>
-        <Form />
+        <FormCreate />
       </Content>
     </Container>
   );

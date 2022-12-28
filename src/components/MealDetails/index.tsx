@@ -16,7 +16,7 @@ export function MealDetails({
   ...rest
 }: Props) {
   return (
-    <Container {...rest}>
+    <Container>
       <Time>{hour}</Time>
       <Title>{name}</Title>
       <Tag insideDiet={insideDiet} />
