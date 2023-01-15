@@ -9,9 +9,9 @@ export declare global {
       createMeal: undefined;
       editMeal: {
         id: string;
-      };
+      }
       feedback: {
-        insideDiet?: boolean;
+        withinDiet?: boolean;
       };
     }
   }

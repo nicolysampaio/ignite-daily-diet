@@ -2,7 +2,7 @@ import styled, { css } from "styled-components/native";
 import { View } from "react-native";
 
 type Props = {
-  insideDiet: boolean;
+  withinDiet: boolean;
 };
 
 export const Container = styled.TouchableOpacity`
@@ -42,6 +42,6 @@ export const Tag = styled(View)<Props>`
 
   border-radius: 100px;
 
-  background-color: ${({ theme, insideDiet }) =>
-    insideDiet === true ? theme.COLORS.GREEN_500 : theme.COLORS.RED_500};
+  background-color: ${({ theme, withinDiet }) =>
+    withinDiet === true ? theme.COLORS.GREEN_500 : theme.COLORS.RED_500};
 `;

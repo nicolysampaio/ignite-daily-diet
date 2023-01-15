@@ -1,12 +1,12 @@
 import styled, { css } from "styled-components/native";
 
-interface InsideDietButtonStylesProps {
-  insideDiet: boolean;
+interface WithinDietButtonStylesProps {
+  withinDiet: boolean;
   isActive?: boolean;
 }
 
-interface InsideDietButtonTagStyleProps {
-  insideDiet: boolean;
+interface WithinDietButtonTagStyleProps {
+  withinDiet: boolean;
 }
 
 export const Container = styled.View`
@@ -38,7 +38,7 @@ export const InputGroup = styled.View`
   width: 47%;
 `;
 
-export const InsideDietButton = styled.TouchableOpacity<InsideDietButtonStylesProps>`
+export const WithinDietButton = styled.TouchableOpacity<WithinDietButtonStylesProps>`
   width: 49%;
   height: 50px;
 
@@ -50,22 +50,22 @@ export const InsideDietButton = styled.TouchableOpacity<InsideDietButtonStylesPr
   border-radius: 6px;
   border-width: 1px;
 
-  ${({ theme, insideDiet, isActive }) => css`
+  ${({ theme, withinDiet, isActive }) => css`
     background-color: ${isActive === false
       ? theme.COLORS.GRAY_200
-      : insideDiet === true
+      : withinDiet === true
       ? theme.COLORS.GREEN_300
       : theme.COLORS.RED_300};
 
     border-color: ${isActive === false
       ? theme.COLORS.GRAY_200
-      : insideDiet === true
+      : withinDiet === true
       ? theme.COLORS.GREEN_700
       : theme.COLORS.RED_700};
   `};
 `;
 
-export const InsideDietButtonTag = styled.TouchableOpacity<InsideDietButtonTagStyleProps>`
+export const WithinDietButtonTag = styled.TouchableOpacity<WithinDietButtonTagStyleProps>`
   width: 8px;
   height: 8px;
 
@@ -73,14 +73,14 @@ export const InsideDietButtonTag = styled.TouchableOpacity<InsideDietButtonTagSt
 
   border-radius: 100px;
 
-  ${({ theme, insideDiet }) => css`
-    background-color: ${insideDiet === true
+  ${({ theme, withinDiet }) => css`
+    background-color: ${withinDiet === true
       ? theme.COLORS.GREEN_700
       : theme.COLORS.RED_700};
   `};
 `;
 
-export const InsideDietButtonLabel = styled.Text`
+export const WithinDietButtonLabel = styled.Text`
   ${({ theme }) => css`
     font-family: ${theme.FONT_FAMILY.BOLD};
     font-size: ${theme.FONT_SIZE.SM}px;

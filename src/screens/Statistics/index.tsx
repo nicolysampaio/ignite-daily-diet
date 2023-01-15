@@ -11,7 +11,7 @@ import {
   DietCard,
   Header,
   Number,
-  InsideDietCard,
+  WithinDietCard,
   OutsideDietCard,
   StatisticsStyleProps,
   Subtitle,
@@ -53,10 +53,10 @@ export function Statistics({ type = "PRIMARY" }: Props) {
         </Card>
 
         <DietCard>
-          <InsideDietCard>
+          <WithinDietCard>
             <Number>99</Number>
             <Subtitle>refeições dentro da dieta</Subtitle>
-          </InsideDietCard>
+          </WithinDietCard>
           <OutsideDietCard>
             <Number>10</Number>
             <Subtitle>refeições fora da dieta</Subtitle>

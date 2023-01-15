@@ -10,9 +10,9 @@ import {
   Container,
   Group,
   InputGroup,
-  InsideDietButton,
-  InsideDietButtonLabel,
-  InsideDietButtonTag,
+  WithinDietButton,
+  WithinDietButtonLabel,
+  WithinDietButtonTag,
   Label,
 } from "./styles";
 
@@ -25,14 +25,14 @@ export function FormEdit({ meal }: Props) {
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-  const [insideDiet, setInsideDiet] = useState<boolean>();
+  const [withinDiet, setWithinDiet] = useState<boolean>();
 
   const navigation = useNavigation();
 
   async function handleEditMeal() {
     try {
       await dateCreate(date);
-      navigation.navigate("feedback", { insideDiet });
+      navigation.navigate("feedback", { withinDiet });
     } catch (error) {
       throw error;
     }
@@ -76,23 +76,23 @@ export function FormEdit({ meal }: Props) {
 
         <Label>Está dentro da dieta?</Label>
         <Group>
-          <InsideDietButton
-            insideDiet={true}
-            isActive={insideDiet === true}
-            onPress={() => setInsideDiet(true)}
+          <WithinDietButton
+            withinDiet={true}
+            isActive={withinDiet === true}
+            onPress={() => setWithinDiet(true)}
           >
-            <InsideDietButtonTag insideDiet={true} />
-            <InsideDietButtonLabel>Sim</InsideDietButtonLabel>
-          </InsideDietButton>
+            <WithinDietButtonTag withinDiet={true} />
+            <WithinDietButtonLabel>Sim</WithinDietButtonLabel>
+          </WithinDietButton>
 
-          <InsideDietButton
-            insideDiet={false}
-            isActive={insideDiet === false}
-            onPress={() => setInsideDiet(false)}
+          <WithinDietButton
+            withinDiet={false}
+            isActive={withinDiet === false}
+            onPress={() => setWithinDiet(false)}
           >
-            <InsideDietButtonTag insideDiet={false} />
-            <InsideDietButtonLabel>Não</InsideDietButtonLabel>
-          </InsideDietButton>
+            <WithinDietButtonTag withinDiet={false} />
+            <WithinDietButtonLabel>Não</WithinDietButtonLabel>
+          </WithinDietButton>
         </Group>
       </View>
       <Button title="Cadastrar refeição" onPress={handleEditMeal} />

@@ -1,6 +1,10 @@
-import { MealStorageDto } from '@storage/meal/MealStorageDTO';
+import { MealStorageDTO } from '@storage/meal/MealStorageDTO';
 
-export interface DateStorageDto {
+export interface DateStorageDTO {
+  id: string;
   title: string;
-  data: MealStorageDto[];
+  description: string;
+  withinDiet: boolean;
+  date: string;
+  time: string
 }

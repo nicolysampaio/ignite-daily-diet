@@ -96,7 +96,7 @@ export const DietCard = styled.View`
   justify-content: space-between;
 `;
 
-export const InsideDietCard = styled(Card)`
+export const WithinDietCard = styled(Card)`
   height: 110px;
   width: 50%;
 

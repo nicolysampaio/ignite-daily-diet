@@ -12,14 +12,14 @@ import {
 } from "./styles";
 
 type Props = TouchableOpacityProps & {
-  insideDiet: number;
+  withinDiet: number;
   total: number;
   type?: PercentCardStyleProps;
   icon: keyof typeof Feather.glyphMap;
 };
 
 export function PercentageCard({
-  insideDiet,
+  withinDiet,
   total,
   type = "PRIMARY",
   icon,
@@ -37,7 +37,7 @@ export function PercentageCard({
         <Icon type={type} />
       </IconContainer>
 
-      <Percent>{((insideDiet / total) * 100).toFixed(2)}%</Percent>
+      <Percent>{((withinDiet / total) * 100).toFixed(2)}%</Percent>
       <Subtitle>das refeições dentro da dieta</Subtitle>
     </Container>
   );

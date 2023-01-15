@@ -4,14 +4,14 @@ import styled, { css } from "styled-components/native";
 export type MealStyleProps = boolean;
 
 type Props = {
-  insideDiet: MealStyleProps;
+  withinDiet: MealStyleProps;
 };
 
 export const Container = styled.View<Props>`
   flex: 1;
 
-  background-color: ${({ theme, insideDiet }) =>
-    insideDiet === true ? theme.COLORS.GREEN_300 : theme.COLORS.RED_300};
+  background-color: ${({ theme, withinDiet }) =>
+    withinDiet === true ? theme.COLORS.GREEN_300 : theme.COLORS.RED_300};
 `;
 
 export const Header = styled.View`
@@ -104,8 +104,8 @@ export const Tag = styled.View<Props>`
   align-items: center;
   justify-content: center;
 
-  ${({ theme, insideDiet }) => css`
-    width: ${insideDiet === true ? "144px" : "128px"};
+  ${({ theme, withinDiet }) => css`
+    width: ${withinDiet === true ? "144px" : "128px"};
     background-color: ${theme.COLORS.GRAY_200};
   `}
 `;
@@ -117,8 +117,8 @@ export const TagColor = styled.View<Props>`
 
   border-radius: 100px;
 
-  background-color: ${({ theme, insideDiet }) =>
-    insideDiet === true ? theme.COLORS.GREEN_700 : theme.COLORS.RED_700};
+  background-color: ${({ theme, withinDiet }) =>
+    withinDiet === true ? theme.COLORS.GREEN_700 : theme.COLORS.RED_700};
 `;
 
 export const TagTile = styled.Text`

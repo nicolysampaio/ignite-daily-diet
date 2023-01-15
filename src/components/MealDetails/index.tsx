@@ -7,19 +7,19 @@ type Props = TouchableOpacityProps & {
     id: string;
     hour: string;
     name: string;
-    insideDiet: boolean;
+    withinDiet: boolean;
   };
 };
 
 export function MealDetails({
-  meal: { id, hour, name, insideDiet },
+  meal: { id, hour, name, withinDiet },
   ...rest
 }: Props) {
   return (
-    <Container>
+    <Container {...rest} >
       <Time>{hour}</Time>
       <Title>{name}</Title>
-      <Tag insideDiet={insideDiet} />
+      <Tag withinDiet={withinDiet} />
     </Container>
   );
 }

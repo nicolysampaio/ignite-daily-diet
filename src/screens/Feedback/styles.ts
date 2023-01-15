@@ -1,8 +1,8 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styled, { css } from "styled-components/native";
 
-interface InsideDietTitleStyleProps {
-  insideDiet: boolean;
+interface WithinDietTitleStyleProps {
+  withinDiet: boolean;
 }
 
 export const Container = styled(SafeAreaView)`
@@ -16,13 +16,13 @@ export const Container = styled(SafeAreaView)`
   padding: 32px;
 `;
 
-export const Title = styled.Text<InsideDietTitleStyleProps>`
+export const Title = styled.Text<WithinDietTitleStyleProps>`
   margin-bottom: 8px;
 
-  ${({ theme, insideDiet }) => css`
+  ${({ theme, withinDiet }) => css`
     font-family: ${theme.FONT_FAMILY.BOLD};
     font-size: ${theme.FONT_SIZE.XL}px;
-    color: ${insideDiet === true
+    color: ${withinDiet === true
       ? theme.COLORS.GREEN_700
       : theme.COLORS.RED_700};
   `};

@@ -27,7 +27,7 @@ type RouteParams = {
 
 export function Meal() {
   const meal = {
-    insideDiet: true,
+    withinDiet: true,
     name: "Sanduíche",
     description:
       "Sanduíche de pão integral com atum e salada de alface e tomate",
@@ -61,7 +61,7 @@ export function Meal() {
 
   return (
     <>
-      <Container insideDiet={meal.insideDiet}>
+      <Container withinDiet={meal.withinDiet}>
         <Header>
           <BackButton onPress={handleGoBack}>
             <BackIcon />
@@ -82,10 +82,10 @@ export function Meal() {
               {meal.date} às {meal.time}
             </DateAndTime>
 
-            <Tag insideDiet={meal.insideDiet}>
-              <TagColor insideDiet={meal.insideDiet} />
+            <Tag withinDiet={meal.withinDiet}>
+              <TagColor withinDiet={meal.withinDiet} />
               <TagTile>
-                {meal.insideDiet === true ? "dentro da dieta" : "fora da dieta"}
+                {meal.withinDiet === true ? "dentro da dieta" : "fora da dieta"}
               </TagTile>
             </Tag>
 

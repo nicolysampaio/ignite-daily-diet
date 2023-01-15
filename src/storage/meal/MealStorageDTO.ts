@@ -1,8 +1,8 @@
-export interface MealStorageDto {
+export type MealStorageDTO = {
   id: string;
-  name: string;
+  title: string;
   description: string;
+  withinDiet: boolean;
   date: string;
-  hour: string;
-  insideDiet: boolean;
+  time: string
 }
