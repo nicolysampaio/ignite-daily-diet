@@ -90,7 +90,7 @@ export function Home() {
   }
 
   function handleCreateMeal() {
-    navigation.navigate("createMeal");
+    navigation.navigate("createOrEditMeal", {type: "add"});
   }
 
   function handleOpenMeal(id: string) {

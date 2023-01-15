@@ -47,7 +47,7 @@ export function Meal() {
   }
 
   function handleEditMeal(id: string) {
-    navigation.navigate("editMeal", { id });
+    navigation.navigate("createOrEditMeal", { type: "edit" });
   }
 
   function handleCloseModal() {

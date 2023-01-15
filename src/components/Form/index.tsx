@@ -18,7 +18,7 @@ import {
   Label,
 } from "./styles";
 
-export function FormCreate() {
+export function Form() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
@@ -29,7 +29,7 @@ export function FormCreate() {
 
   async function handleNewMeal() {
     try {
-      await dateCreate(name);
+      //await dateCreate(name);
       navigation.navigate("feedback", { withinDiet });
     } catch (error) {
       throw error;

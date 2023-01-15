@@ -1,4 +1,4 @@
-import { useRoute, useNavigation, Route } from "@react-navigation/native";
+import { useNavigation } from '@react-navigation/native';
 
 import {
   BackButton,
@@ -9,16 +9,9 @@ import {
   Title,
 } from "./styles";
 
-import { FormEdit } from "@components/FormEdit";
+import { Form } from "@components/Form";
 
-type RouteParams = {
-  id: string;
-};
-
-export function EditMeal() {
-  const route = useRoute();
-  const { id } = route.params as RouteParams;
-
+export function CreateOrEditMeal() {
   const navigation = useNavigation();
 
   function handleGoBack() {
@@ -32,11 +25,11 @@ export function EditMeal() {
           <BackIcon />
         </BackButton>
 
-        <Title>Editar refeição</Title>
+        <Title>Nova refeição</Title>
       </Header>
 
       <Content>
-        <FormEdit meal={id} />
+        <Form />
       </Content>
     </Container>
   );
