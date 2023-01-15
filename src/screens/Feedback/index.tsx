@@ -8,7 +8,7 @@ import {
 } from "./styles";
 
 import withinDietImg from "@assets/withinDiet.png";
-import outsideDietImg from "@assets/outsideDiet.png";
+import offDietImg from "@assets/offDiet.png";
 import { Button } from "@components/Button";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
@@ -44,7 +44,7 @@ export function Feedback() {
             Você <SubtitleStrong>saiu da dieta</SubtitleStrong>. dessa vez, mas
             continue se esforçando e não desista!
           </Subtitle>
-          <FeedbackImage source={outsideDietImg} />
+          <FeedbackImage source={offDietImg} />
         </>
       )}
       <ButtonContainer>

@@ -105,7 +105,7 @@ export const WithinDietCard = styled(Card)`
   background-color: ${({ theme }) => theme.COLORS.GREEN_300};
 `;
 
-export const OutsideDietCard = styled(Card)`
+export const OffDietCard = styled(Card)`
   width: 50%;
   height: 110px;
 
